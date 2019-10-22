@@ -4,6 +4,7 @@ lib
 lib64
 include
 *.csv
+*.pdf
 *.log
 *.aux
 *.out
