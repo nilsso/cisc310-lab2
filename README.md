@@ -5,12 +5,13 @@
 
 ## About the program
 
-- Uses [cxxopts], an open-source command-line option parser that facilitates building robust
-command-line behavior easily. (I wouldn't include this if I thought it impacted any part of the
-project significantly, it just makes the end-user experience richer.)
-- For help and usage, invoke with the `-h` optional flag.
+The driver program `lab2` is in charge of:
 
-[cxxopts]: https://github.com/jarro2783/cxxopts
+- Streaming data from a MILES CSV file and constructing a list of MILES code objects
+- Streaming data from a sequence CSV file into a list of sequences (queues)
+- Constructing a decoder from the list of MILES code objects
+- Using the decoder to decode the sequences and collecting found IDs
+- Outputting the found MILES code IDs in CSV format
 
 ## About the project structure
 
@@ -58,9 +59,9 @@ directories: `rm -rf {bin,lib,include}`.)
 The built binary will be located at `build/src/lab2`.
 Invoke with the `-h` flag for a full list of options to the program.
 By default, attempts to read MILES code patterns from a file named `miles.csv` and sequences from a
-file named `seqs.csv` (these files can be changed through optional flags). Additional optional
-arguments are `-n` for normalizing input sequences, and `-o <FILE>` for specifying an output file
-into which found MILES codes will be written.
+file named `seqs.csv` (these files can be changed through optional flags), but these defaults can be
+replace by invoking the program with file locations for the MILES file and sequences file, in that
+order.
 
 ## MILES code/sequence generator
 

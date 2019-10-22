@@ -1,4 +1,5 @@
 #include <cstdlib>
+#include <algorithm>
 #include <vector>
 #include <string>
 
@@ -62,7 +63,7 @@ namespace MILES {
 
     bool Decoder::all_bad() const {
         return std::all_of(m_codes.begin(), m_codes.end(),
-                [](auto &code) { return code.bad(); });
+                [](const Code &code) { return code.bad(); });
     }
 
     queue<int> Decoder::decode(queue<int> &&seq) {
@@ -70,7 +71,7 @@ namespace MILES {
         while (!seq.empty()) {
             // break if sequence smaller than all codes
             if (std::all_of(m_codes.cbegin(), m_codes.cend(),
-                    [size = seq.size()](auto &code) { return size < code.size(); }))
+                    [size = seq.size()](const Code &code) { return size < code.size(); }))
                 break;
             // peek entire queue, reset codes to first value, and look for a code
             auto peeked = seq.peek();
@@ -78,7 +79,7 @@ namespace MILES {
             reset_all(*ittr);
             for (size_t i = 0; ittr != peeked.end(); ++ittr, ++i) {
                 auto found = std::find_if(m_codes.begin(), m_codes.end(),
-                        [pulse = *ittr](auto &code) { return code.advance(pulse); });
+                        [pulse = *ittr](Code &code) { return code.advance(pulse); });
                 if (all_bad()) break;
                 if (found != m_codes.end()) {
                     found_codes.enqueue(found->id());
