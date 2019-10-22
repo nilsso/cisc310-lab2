@@ -17,7 +17,7 @@ public:
     queue() = default;
 
     //! Copy constructor
-    queue(const queue<T> &other) = default;
+    queue(const queue<T>&) = default;
 
     //! Initializer list constructor
     queue(std::initializer_list<T> list):

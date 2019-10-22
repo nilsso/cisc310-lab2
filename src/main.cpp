@@ -113,7 +113,7 @@ int main(int argc, char *argv[]) {
 
     // Process sequences and output found code ID's
     MILES::Decoder decoder(std::move(codes));
-    for (auto sequence: sequences) {
+    for (auto &sequence: sequences) {
         auto found_ids = decoder.decode(std::move(sequence));
         std::cout << util::join(found_ids.peek(), ",", "", "") << std::endl;
     }

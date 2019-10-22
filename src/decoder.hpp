@@ -33,7 +33,7 @@ namespace MILES {
         Code() = delete;
 
         //! Copy constructor
-        explicit Code(const Code &other);
+        explicit Code(const Code&) = default;
 
         //! Parameterized constructor
         explicit Code(std::vector<int> &&pattern, int id);

@@ -11,8 +11,6 @@ namespace MILES {
     // ---------------------------------------------------------------------------------------------
     // Class: Code
     // ---------------------------------------------------------------------------------------------
-    Code::Code(const Code &other) = default;
-
     Code::Code(std::vector<int> &&pattern, int id):
         m_id { id },
         m_pattern { std::move(pattern) },
