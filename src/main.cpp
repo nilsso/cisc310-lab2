@@ -124,7 +124,7 @@ int main(int argc, char *argv[]) {
 bool validate_pattern(const std::vector<int> &pattern) {
     if (pattern.empty() || pattern[0] != 0 || pattern.size() != 7)
         return false;
-    for (int i = 1; i < pattern.size() - 1; i++) {
+    for (unsigned long i = 1; i < pattern.size() - 1; i++) {
         if (pattern[i-1] >= pattern[i])
             return false;
     }
