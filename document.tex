@@ -1,0 +1,44 @@
+% arara: lualatex: {shell: 1}
+%!TeX TS-program=arara
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{fontspec}
+\usepackage[T1]{fontenc}
+\usepackage{mathpazo}
+\usepackage{multicol}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage[inline]{enumitem}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage[rgb]{xcolor}
+\usepackage{minted}
+\renewcommand\labelitemi{\small$\bullet$}
+\setmonofont[Scale=MatchLowercase,Contextuals={Alternate}]{FuraCode Nerd Font}
+\setminted{frame=lines,framesep=1em,fontsize=\small}
+%\usemintedstyle{solarizedlight}
+\setlength\parindent{0pt}
+\begin{document}
+\begin{center}
+    Nils Olsson, CS-310, Lab 2
+\end{center}
+\hrulefill{}
+
+\section*{Project information: \texttt{README.md}}
+\inputminted{md}{README.md}
+
+\section*{Lab 1 driver program: \texttt{main.cpp}}
+\inputminted{cpp}{src/main.cpp}
+
+\section*{Queue implementation: \texttt{queue.hpp}}
+\inputminted{cpp}{src/queue.hpp}
+
+\section*{Decoder declaration: \texttt{decoder.hpp}}
+\inputminted{cpp}{src/decoder.hpp}
+
+\section*{Decoder implementation: \texttt{decoder.hpp}}
+\inputminted{cpp}{src/decoder.cpp}
+
+\section*{Utility code: \texttt{util.hpp}}
+\inputminted{cpp}{src/util.hpp}
+\end{document}
