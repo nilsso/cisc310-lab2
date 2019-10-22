@@ -5,16 +5,16 @@
 
 ## About the program
 
-- Uses [cxxopts], an open-source commandline option parser that facilitates building robust
-commandline behavior easily. (I wouldn't include this if I thought it impacted any part of the
-project signifcantly, it just makes the end-user experience richer.)
+- Uses [cxxopts], an open-source command-line option parser that facilitates building robust
+command-line behavior easily. (I wouldn't include this if I thought it impacted any part of the
+project significantly, it just makes the end-user experience richer.)
 - For help and usage, invoke with the `-h` optional flag.
 
 [cxxopts]: https://github.com/jarro2783/cxxopts
 
 ## About the project structure
 
-This project structure was originally addapted from [cmake-project-template][cpt] for a project from
+This project structure was originally adapted from [cmake-project-template][cpt] for a project from
 last year, [acm-cpp]. The structure is split into two parts, the `src` directory which contains all
 source-code for the project proper, and the `test` directory which includes the [googletest][gt]
 library and unit-test source files.
@@ -27,9 +27,17 @@ provided.
 [cmake]: https://cmake.org/
 [gt]: https://github.com/google/googletest
 
-## Building
+## Acquiring and building
 
-From the command-line, make a directory called `build` in the root of the project, move into it,
+**(Note: cloning wont work since the repository is currently private)**
+
+To clone this project along with the [googletest][gt] submodule:
+
+```bash
+git clone --recursive git://github.com/nilsso/cisc310-lab2
+```
+
+Then from the command-line, make a directory called `build` in the root of the project, move into it,
 invoke `cmake` with the previous directory as its argument, and invoke `make` with the generated
 Makefiles.
 
@@ -50,7 +58,7 @@ directories: `rm -rf {bin,lib,include}`.)
 The built binary will be located at `build/src/lab2`.
 Invoke with the `-h` flag for a full list of options to the program.
 By default, attempts to read MILES code patterns from a file named `miles.csv` and sequences from a
-fale named `seqs.csv` (these files can be changed through optional flags). Additional optional
+file named `seqs.csv` (these files can be changed through optional flags). Additional optional
 arguments are `-n` for normalizing input sequences, and `-o <FILE>` for specifying an output file
 into which found MILES codes will be written.
 
