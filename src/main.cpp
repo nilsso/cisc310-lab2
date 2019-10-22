@@ -35,18 +35,18 @@ bool validate_pattern(const std::vector<int> &pattern);
 
 // Default file names (paths)
 const std::string MILES_FILE_DEFAULT = "miles.csv";
-const std::string SEQ_FILE_DEFAULT = "seqs.csv";
+const std::string SEQS_FILE_DEFAULT = "seqs.csv";
 
 // Help message
 const std::string HELP =
 "CS 310: Lab 2\n"
 "Usage:\n"
-"  ./src/lab2 [-h] [miles] [seq]\n"
+"  ./src/lab2 [-h] [miles] [seqs]\n"
 "\n"
 "Optional arguments:\n"
 "    -h       Print this help message\n"
 "    miles    MILES pattern file (default: miles.csv)\n"
-"    seq      Sequence file (default: seqs.csv)\n";
+"    seqs     Sequence file (default: seqs.csv)\n";
 
 // Entry point
 int main(int argc, char *argv[]) {
@@ -57,7 +57,7 @@ int main(int argc, char *argv[]) {
 
     // Get file paths
     std::string path_m = argc >= 2 ? argv[1] : MILES_FILE_DEFAULT;
-    std::string path_s = argc >= 3 ? argv[2] : SEQ_FILE_DEFAULT;
+    std::string path_s = argc >= 3 ? argv[2] : SEQS_FILE_DEFAULT;
 
     // Variables for CSV reading
     int temp;
