@@ -1,7 +1,9 @@
 build
 bin
 lib
+lib64
 include
+*.csv
 *.log
 *.aux
 *.out
