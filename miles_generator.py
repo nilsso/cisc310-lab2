@@ -12,7 +12,7 @@ codes = {
         22: [1, 1, 0, 0, 0, 1, 1, 0, 0, 1, 1],
         24: [1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 1],
         27: [1, 1, 0, 0, 1, 0, 0, 0, 1, 1, 1] }
-ids = list(codes.keys())
+ids = list(sorted(codes.keys()))
 
 def get_pulses(k):
     return [pulses[j] for j in range(len(pulses)) if codes[k][j]]
@@ -27,8 +27,9 @@ def construct_miles(args):
 def construct_seq(args):
     pulses = [get_pulses(c) for c in args.codes]
     for i in range(1, len(pulses)):
+        shift = pulses[i-1][1] - pulses[i-1][0]
         for j in range(len(pulses[i])):
-            pulses[i][j] += pulses[i-1][-1] + (pulses[i-1][1] - pulses[i-1][0])
+            pulses[i][j] += pulses[i-1][-1] + shift
     return ','.join(map(str, [ p+args.shift for p in chain(*pulses) ]))
 
 if __name__ == '__main__':
